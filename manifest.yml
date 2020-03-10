@@ -1,0 +1,11 @@
+---
+applications:
+- name: dns_tester
+  memory: 96MB
+  disk_quota: 50MB
+  random-route: true
+  buildpack: python_buildpack
+  command: python main.py
+  env:
+    PORT: 80
+    DOMAIN_NAME: example.com
