@@ -15,10 +15,11 @@ while True:
         start_time = time.time()
         result = socket.getaddrinfo(domain, port)
         end_time = time.time()
-        total_time = (end_time - start_time) * 10000
+        total_time = (end_time - start_time)
         print("dns_validation_lookup {}".format(result[2][4][0]))
         print("dns_validation_response_time {}".format(total_time))
     except socket.gaierror:
         error_count=error_count+1
+        print("# TYPE dns_validation_error_count counter")
         print("dns_validation_error_count {}".format(error_count))
     time.sleep(5)
